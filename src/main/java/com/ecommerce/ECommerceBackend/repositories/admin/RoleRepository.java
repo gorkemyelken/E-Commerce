@@ -1,6 +1,6 @@
-package com.ecommerce.ECommerceBackend.repositories;
+package com.ecommerce.ECommerceBackend.repositories.admin;
 
-import com.ecommerce.ECommerceBackend.entities.Role;
+import com.ecommerce.ECommerceBackend.entities.admin.Role;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

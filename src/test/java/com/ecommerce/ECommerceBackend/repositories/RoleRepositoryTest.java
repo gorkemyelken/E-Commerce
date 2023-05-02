@@ -1,6 +1,7 @@
 package com.ecommerce.ECommerceBackend.repositories;
 
-import com.ecommerce.ECommerceBackend.entities.Role;
+import com.ecommerce.ECommerceBackend.entities.admin.Role;
+import com.ecommerce.ECommerceBackend.repositories.admin.RoleRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;

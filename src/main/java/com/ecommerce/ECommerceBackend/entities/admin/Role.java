@@ -1,4 +1,4 @@
-package com.ecommerce.ECommerceBackend.entities;
+package com.ecommerce.ECommerceBackend.entities.admin;
 
 import jakarta.persistence.*;
 import lombok.Getter;
