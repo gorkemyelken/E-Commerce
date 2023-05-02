@@ -5,6 +5,7 @@ import com.ecommerce.ECommerceBackend.repositories.admin.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -13,8 +14,10 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public List<User> listAll(){
-        return (List<User>) userRepository.findAll();
+    public List<User> listAll() {
+        List<User> userList = new ArrayList<>();
+        userRepository.findAll().forEach(userList::add);
+        return userList;
     }
 
 }
