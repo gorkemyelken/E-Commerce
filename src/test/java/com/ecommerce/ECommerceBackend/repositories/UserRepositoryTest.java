@@ -87,4 +87,12 @@ class UserRepositoryTest {
         repository.deleteById(deleteUser);
 
     }
+
+    @Test
+    public void testGetUserByEmail(){
+        String email = "gorkemyelkenn@gmail.com";
+        User user = repository.getUserByEmail(email);
+
+        assertThat(user).isNotNull();
+    }
 }

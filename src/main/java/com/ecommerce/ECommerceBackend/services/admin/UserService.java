@@ -7,7 +7,6 @@ import com.ecommerce.ECommerceBackend.repositories.admin.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -30,4 +29,10 @@ public class UserService {
     public void save(User user) {
         userRepository.save(user);
     }
+
+    public boolean isEmailUnique(String email){
+        User userByEmail = userRepository.getUserByEmail(email);
+        return userByEmail == null;
+    }
+
 }

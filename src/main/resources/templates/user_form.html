@@ -60,7 +60,7 @@
 
     <form th:action="@{/users/save}" method="post"
           style="max-width: 700px; margin: 0 auto" th:object="${user}"
-    >
+          onsubmit="return checkEmailUnique(this);">
         <input type="hidden" th:field="*{id}" />
         <div class="border border-secondary rounded p-3">
             <div class="form-group row">
@@ -70,7 +70,7 @@
                            required minlength="8" maxlength="128" />
                 </div>
             </div>
-            <br/>
+<br/>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label">First Name:</label>
                 <div class="col-sm-8">
@@ -127,7 +127,7 @@
     </form>
 
     <div class="text-center">
-        <p>E-Commerce Control Panel - Copyright &copy; gorkemyelken</p>
+        <p>ECommerce Control Panel - Copyright &copy; gorkemyelken</p>
     </div>
 
 </div>
@@ -139,6 +139,28 @@
 				window.location = "[[@{/users}]]";
 			});
 		});
+
+		function checkEmailUnique(form) {
+			url = "[[@{/users/check_email}]]";
+			userEmail = $("#email").val();
+			csrfValue = $("input[name='_csrf']").val();
+
+			params = {email: userEmail, _csrf: csrfValue};
+
+			$.post(url, params, function(response) {
+				if (response == "OK") {
+					form.submit();
+				} else if (response == "Duplicated") {
+					alert("There is another user having the email " + userEmail);
+				} else {
+					alert("Unknown response from server");
+				}
+			}).fail(function() {
+				alert("Could not connect to the server");
+			});
+
+			return false;
+		}
 
 	</script>
 
