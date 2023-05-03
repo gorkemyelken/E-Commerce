@@ -7,6 +7,7 @@
     <title>Home - ECommerce Admin</title>
 
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/fontawesome/all.css}" />
     <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}" ></script>
     <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" ></script>
 </head>
@@ -16,9 +17,9 @@
     <div>
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
             <a class="navbar-brand" th:href="@{/}">
-                <img th:src="@{/images/e-commerce.png}" />
+                <img th:src="@{/images/ShopmeAdminSmall.png}" />
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavbar">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="topNavbar">
@@ -89,13 +90,32 @@
             <tbody>
             <tr th:each="user : ${listUsers}">
                 <td th:text="${user.id}"></td>
-                <td></td>
+                <td><span class="fas fa-portrait fa-3x icon-silver"></span></td>
                 <td th:text="${user.email}"></td>
                 <td th:text="${user.firstName}"></td>
                 <td th:text="${user.lastName}"></td>
                 <td th:text="${user.roles}"></td>
-                <td th:text="${user.enabled}"></td>
-                <td> Edit &nbsp Delete</td>
+                <td>
+                    <a th:if="${user.enabled == true}" class="fas fa-check-circle fa-2x icon-green"
+                       href=""
+                    ></a>
+
+                    <a th:if="${user.enabled == false}" class="fas fa-check-circle fa-2x icon-dark"
+                       href=""
+                    ></a>
+                </td>
+
+                <td>
+                    <a class="fas fa-edit fa-2x icon-green"
+                       href=""
+                    >
+                    </a>
+                    &nbsp;
+                    <a class="fas fa-trash fa-2x icon-dark link-delete"
+                       href=""
+                    >
+                    </a>
+                </td>
 
             </tr>
             </tbody>
@@ -104,7 +124,7 @@
 
 
     <div class="text-center">
-        <p>ECommerce Control Panel - Copyright &copy gorkemyelken</p>
+        <p>Shopme Control Panel - Copyright &copy; Shopme</p>
     </div>
 
 </div>
